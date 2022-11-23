@@ -62,8 +62,7 @@ void loop()
   delay(10);
   Vector rawAccel = mpu.readRawAccel();
   Vector normAccel = mpu.readNormalizeAccel();
-   /*Serial.print(" Xnorm = ");
- 
+   /*Serial.print(" Xnorm = "); //uncomment those lines to enable debug mode(or testing mode)
   Serial.print(normAccel.XAxis);
   Serial.print(" Ynorm = ");
   Serial.print(normAccel.YAxis);
@@ -76,7 +75,7 @@ void loop()
   Serial.print(flex3);
   Serial.print("-");
   Serial.print(flex4);
-  Serial.println("-");*/
+  Serial.println("-");*/ //these lines print output of accelero(all axis) and flex at every update interval
   delay(1000);
   if(flex1<200) 
   {
