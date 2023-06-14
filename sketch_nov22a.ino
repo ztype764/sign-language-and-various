@@ -18,6 +18,7 @@ void setup()
  pinMode(ledd,OUTPUT);
  digitalWrite(ledd,LOW);
  Serial.begin(9600);
+//From mpu library 
  Serial.println("Initialize MPU6050");
  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G))
  {
@@ -55,6 +56,7 @@ void checkSettings()
 
 void loop()
 {
+//for flex resistors, needs change for servos
   flex1=analogRead(adc1);
   flex2=analogRead(adc2);
   flex3=analogRead(adc3);
@@ -62,7 +64,8 @@ void loop()
   delay(10);
   Vector rawAccel = mpu.readRawAccel();
   Vector normAccel = mpu.readNormalizeAccel();
-   /*Serial.print(" Xnorm = "); //uncomment those lines to enable debug mode(or testing mode)
+   /*Serial.print(" Xnorm = "); 
+//uncomment those lines to enable debug mode
   Serial.print(normAccel.XAxis);
   Serial.print(" Ynorm = ");
   Serial.print(normAccel.YAxis);
@@ -75,7 +78,7 @@ void loop()
   Serial.print(flex3);
   Serial.print("-");
   Serial.print(flex4);
-  Serial.println("-");*/ //these lines print output of accelero(all axis) and flex at every update interval
+  Serial.println("-");*/ //these lines print output of accelero and flex at every update interval, update interval is changeable 
   delay(1000);
   if(flex1<200) 
   {
